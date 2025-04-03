@@ -29,6 +29,8 @@ export default function Index() {
         const video = await cameraRef.current.recordAsync({
           maxDuration: 300,
         });
+
+        //Grabar el video en la galería, no debería necesitarse si se va a hacer upload.
         if (video) {
           const asset = await MediaLibrary.createAssetAsync(video.uri);
           await MediaLibrary.createAlbumAsync("MyAppVideos", asset, false);
